@@ -167,7 +167,6 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
     { label: 'Online auction format', value: 'Undefined bidding round' },
     { label: 'Payment method price', value: auctionDetailInfor.paymentMethod },
   ];
-  const [check, setCheck] = useState(true);
   const handleNavigateToContract = () => {
     navigate('/contract', {
       state: {
@@ -182,7 +181,7 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
         effectiveDate: '05/11/2024',
         auctionId: auctionDetailInfor.listAuctionID,
         deposit: auctionDetailInfor.moneyDeposit,
-        check: check,
+        check: currentPath.includes('phien-dau-gia') ? true : false,
         // Auction data
         auctionInfo: [
           {
@@ -258,7 +257,6 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
                   <button className="bg-amber-500 text-white px-2 py-1 rounded mr-2 h-10"
                   onClick={() => {
                     handleNavigateToContract();
-                    setCheck(false);
                   }}>
                     View contract
                   </button>

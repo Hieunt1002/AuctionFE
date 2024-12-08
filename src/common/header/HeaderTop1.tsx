@@ -28,6 +28,7 @@ const HeaderTop1 = () => {
   const onLogoutBtnClick = () => {
     logout();
     navigate('/');
+    setAnchorEl(null);
   };
   const toggleMobileMenu = () => {
     setIsMobileMenu(!isMobileMenu);
@@ -35,9 +36,11 @@ const HeaderTop1 = () => {
 
   const onProfileClick = () => {
     navigate('/profile');
+    setAnchorEl(null);
   };
   const onChangePassword = () => {
     navigate('/changePasswordPage');
+    setAnchorEl(null);
   };
 
   // Close both menus when clicking outside

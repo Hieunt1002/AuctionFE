@@ -322,7 +322,7 @@ const AuctionContract = () => {
       </section>
 
       <section className="flex justify-center mt-6">
-        {userId | check ? (
+        {check ? (
           <>
             <button
               className="bg-blue-500 text-white px-2 py-1 rounded mr-2 w-56 h-10"
