@@ -1,18 +1,7 @@
 {
   "files": [],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
-  "compilerOptions": {
-    "baseUrl": "src",  // Base URL set to the src folder
-    "paths": {
-      "@queries/*": ["queries/*"]  // Alias for @queries
-    },
-    // Add any other compiler options you need here, like target, module, etc.
-  }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
