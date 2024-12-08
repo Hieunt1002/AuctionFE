@@ -1,7 +1,7 @@
 import { CredentialResponse } from '@react-oauth/google';
 import axios from 'axios';
 import React, { ReactNode, createContext, useContext, useState } from 'react';
-import { AuthResponse, GoogleLoginFailureResponse, LoginRequest, SignUpRequest } from 'types';
+import { AuthResponse, LoginRequest, SignUpRequest } from 'types';
 
 interface AuthContextType {
   token: string | null;

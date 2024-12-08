@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { resetPass } from '../queries/AuthenAPI';
 import { FormEvent, useState } from 'react';

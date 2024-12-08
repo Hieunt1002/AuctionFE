@@ -24,6 +24,7 @@ const ListAuctionAdmin: React.FC<ListAuctionAdminProps> = ({ id, name, status })
   const [value, setValue] = useState(0); // Khởi tạo value là số
 
   const handleChange = (event: any, newValue: string) => {
+    console.log(event);
     setValue(Number(newValue)); // Chuyển đổi newValue sang số
   };
 

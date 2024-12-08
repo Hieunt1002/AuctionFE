@@ -65,6 +65,7 @@ const PropertiesList = ({ searchResults, isSearch, setIsSearch }: PropertySearch
   }, [value, isSearch, searchResults]);
 
   const handleChange = (event: any, newValue: string) => {
+    console.log(event);
     setIsSearch(false);
     setValue(newValue);
   };

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@contexts/AuthContext';
 import { profileResponse } from '../../types/auth.type';
 import { profileUser } from '../../queries/AdminAPI';
@@ -10,7 +10,6 @@ import { getListNotification } from '@queries/AuctionAPI';
 const HeaderTop1 = () => {
   const navigate = useNavigate();
   const { logout, isAuthenticated } = useAuth();
-  const [isProfileMenu, setIsProfileMenu] = useState(false);
   const [isMobileMenu, setIsMobileMenu] = useState(false);
   const [profile, setProfile] = useState<profileResponse | null>();
 
@@ -18,10 +17,6 @@ const HeaderTop1 = () => {
     const role = localStorage.getItem('role');
     return role;
   };
-  const onTitleClick = () => {
-    navigate('/');
-  };
-
   const onLoginBtnClick = () => {
     navigate('/login');
   };
@@ -34,28 +29,20 @@ const HeaderTop1 = () => {
     logout();
     navigate('/');
   };
-  const toggleProfileMenu = () => {
-    setIsProfileMenu(!isProfileMenu);
-  };
   const toggleMobileMenu = () => {
     setIsMobileMenu(!isMobileMenu);
   };
 
   const onProfileClick = () => {
     navigate('/profile');
-    setIsProfileMenu(false);
   };
   const onChangePassword = () => {
     navigate('/changePasswordPage');
-    setIsProfileMenu(false);
   };
 
   // Close both menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: any) => {
-      if (!e.target.closest('#user-menu-button')) {
-        setIsProfileMenu(false);
-      }
       if (!e.target.closest('#mobile-menu-button')) {
         setIsMobileMenu(false);
       }

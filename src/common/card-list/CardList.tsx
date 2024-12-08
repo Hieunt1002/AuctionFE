@@ -1,6 +1,4 @@
-import * as React from 'react';
 import CountdownTimer from '../coutdown-timer/CountdownTimer';
-import news from '../../../public/news.webp';
 import { useNavigate } from 'react-router-dom';
 
 interface CardListProps {

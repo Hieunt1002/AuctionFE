@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { getCity, getDistrict, getWard, profileUser } from '../../queries/AdminAPI';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cityResponse, districtResponse, wardResponse } from '../../types/auth.type';
 import { useMessage } from '@contexts/MessageContext';
@@ -28,7 +28,7 @@ const Profile = () => {
   const [citys, setCitys] = useState<cityResponse[]>([]);
   const [districts, setDistricts] = useState<districtResponse[]>([]);
   const [wards, setWards] = useState<wardResponse[]>([]);
-  const { setErrorMessage, setSuccessMessage } = useMessage();
+  const { setErrorMessage } = useMessage();
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {

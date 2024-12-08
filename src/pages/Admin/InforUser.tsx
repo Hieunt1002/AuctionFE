@@ -1,8 +1,8 @@
 import { cityResponse, districtResponse, profileResponse, wardResponse } from '../../types/auth.type';
 import { getCity, getDistrict, getWard, inforUser } from '../../queries/AdminAPI';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useMessage } from '@contexts/MessageContext';
 
 const InforUser = () => {
@@ -12,7 +12,7 @@ const InforUser = () => {
   const [citys, setCitys] = useState<cityResponse[]>([]);
   const [districts, setDistricts] = useState<districtResponse[]>([]);
   const [wards, setWards] = useState<wardResponse[]>([]);
-  const { setErrorMessage, setSuccessMessage } = useMessage();
+  const { setErrorMessage } = useMessage();
   const { iduser, status = false } = location.state || {};
   const handleToInfor = () => {
     // Pass `iduser` as part of the state to the `/inforUser` route

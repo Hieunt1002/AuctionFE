@@ -1,17 +1,10 @@
 import { useMessage } from '@contexts/MessageContext';
-import { createPaymentDeposit, registerForAuction } from '../queries/AuctionAPI';
-import React, { useEffect, useState } from 'react';
+import { registerForAuction } from '../queries/AuctionAPI';
+import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getCity, getDistrict, getWard, inforUser, profileUser } from '@queries/AdminAPI';
 import { cityResponse, districtResponse, profileResponse, wardResponse } from '../types/auth.type';
 import sign from '../../public/tao-chu-ky-dep-theo-ten.jpg'
-
-interface Bid {
-  id: number;
-  price: number;
-  timestamp: string;
-  userId: number;
-}
 
 const AuctionContract = () => {
   const location = useLocation();
@@ -20,9 +13,6 @@ const AuctionContract = () => {
     companyAddress,
     taxCode,
     representativeName,
-    sellerName,
-    sellerID,
-    sellerAddress,
     deposit,
     owner,
     userId,
@@ -31,7 +21,7 @@ const AuctionContract = () => {
     check,
   } = location.state || {};
 
-  const { setErrorMessage, setSuccessMessage } = useMessage();
+  const { setErrorMessage } = useMessage();
   const navigate = useNavigate();
 
   const [profile, setProfile] = useState<profileResponse | null>(null);
@@ -44,7 +34,6 @@ const AuctionContract = () => {
   const [filteredDistrict, setFilteredDistrict] = useState<districtResponse[]>([]);
   const [filteredWards, setFilteredWards] = useState<cityResponse[]>([]);
   const [filteredWard, setFilteredWard] = useState<cityResponse[]>([]);
-  const [accepted, setAccepted] = useState(false);
   const handleAccept = async (id: number) => {
     try {
       const createResponse = await registerForAuction(id);
@@ -56,7 +45,6 @@ const AuctionContract = () => {
     } catch (error) {
       setErrorMessage('Error adding information');
     }
-    setAccepted(true);
   };
 
   const fetchData = async () => {

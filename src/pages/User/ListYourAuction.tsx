@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SearchBox from '../../components/SearchBox';
 import PropertiesList from '../../components/propertiesList-user/PropertiesList';
 import { Auction } from '../../types/auction.type';
-import { getSearchAuction, searchauctionregistrationlist } from '@queries/AuctionAPI';
+import { searchauctionregistrationlist } from '@queries/AuctionAPI';
 import Footer from '@common/footer/Footer';
 
 const ListYourAuction = () => {

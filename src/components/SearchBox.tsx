@@ -1,4 +1,4 @@
-import { Button, InputLabel, MenuItem, Select, TextField, styled } from '@mui/material';
+import { Button, MenuItem, Select, TextField, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from 'react';
 import { getCategory } from '@queries/AuctionAPI';
@@ -45,7 +45,6 @@ const SearchBox = ({ handleSubmit }: PropertySearch) => {
   const [statusSearch, setStatusSearch] = useState(0);
   const [search, setSearch] = useState('');
   const [listCategory, setCategory] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   // Lấy danh sách danh mục
   const fetchListCategory = async () => {
@@ -58,8 +57,6 @@ const SearchBox = ({ handleSubmit }: PropertySearch) => {
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
-    } finally {
-      setLoading(false);
     }
   };
   useEffect(() => {

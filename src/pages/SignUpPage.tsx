@@ -1,6 +1,5 @@
 import { useAuth } from '@contexts/AuthContext';
 import { useMessage } from '@contexts/MessageContext';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

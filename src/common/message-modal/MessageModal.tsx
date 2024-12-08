@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useMessage } from '@contexts/MessageContext';
-import { Alert } from '@mui/material';
 
 const MessageModal: React.FC = () => {
   const { successMessage, errorMessage, setSuccessMessage, setErrorMessage } = useMessage();

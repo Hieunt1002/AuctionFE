@@ -1,6 +1,4 @@
-import { useAuth } from '@contexts/AuthContext';
 import { useMessage } from '@contexts/MessageContext';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { createAccount } from '@queries/AdminAPI';
 import { getCategory } from '@queries/AuctionAPI';
@@ -14,9 +12,7 @@ const AddAccountAdmin = () => {
   const [department, setDepartment] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
-  const { signUp } = useAuth();
   const [listCategory, setCategory] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const { setErrorMessage, setSuccessMessage } = useMessage();
   // Lấy danh sách danh mục
   const fetchListCategory = async () => {
@@ -29,8 +25,6 @@ const AddAccountAdmin = () => {
       }
     } catch (error) {
       setErrorMessage('Error fetching categories:'+ error);
-    } finally {
-      setLoading(false);
     }
   };
   useEffect(() => {

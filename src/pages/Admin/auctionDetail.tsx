@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { approveAuction, getDetailAuctionAdmin, getListUserAdmin } from '../../queries/index';
 import { Grid } from '@material-ui/core';
 import CountdownTimer from '../../common/coutdown-timer/CountdownTimer';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ApproveModal, CancelModal, UserModal } from '@components/modalAccept/ApproveModal';
 import { convertDate } from '@utils/helper';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
@@ -21,7 +21,6 @@ const AuctionDetail = () => {
   const [isApproveModalOpen, setApproveModalOpen] = useState(false); // Modal state
   const [isUserModalOpen, setUserModalOpen] = useState(false); // Modal state
   const [isApproveModalCancelOpen, setApproveModalCancelOpen] = useState(false); // Modal cancel state
-  const [price, setPrice] = useState<number | null>(null);
   const [listUser, setUser] = useState<any[]>([]);
   const [swith, setSwith] = useState(false);
   const [files, setFiles] = useState<File | null>(null);
@@ -461,7 +460,7 @@ const AuctionDetail = () => {
                       {detailAuction.statusAuction == 'Approved' ? (
                         <>
                           <button
-                            onClick={(e) => {
+                            onClick={() => {
                               handleUser();
                             }}
                             className="bg-green-500 text-white px-2 py-1 rounded mr-2"
@@ -487,7 +486,7 @@ const AuctionDetail = () => {
                       ) : (
                         <>
                           <button
-                            onClick={(e) => {
+                            onClick={() => {
                               handleApprove();
                             }}
                             className="bg-green-500 text-white px-2 py-1 rounded mr-2"
@@ -503,7 +502,7 @@ const AuctionDetail = () => {
                         View contract
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={() => {
                           handleReject();
                         }}
                         className="bg-red-500 text-white px-2 py-1 rounded"
@@ -522,7 +521,6 @@ const AuctionDetail = () => {
       <ApproveModal
         open={isApproveModalOpen}
         onClose={handleModalClose}
-        setPrice={setPrice}
         onConfirm={handleModalApprove} // Ensure this is correct
         setHours={setHours}
         setFile={setFiles}
@@ -531,14 +529,12 @@ const AuctionDetail = () => {
       <CancelModal
         open={isApproveModalCancelOpen} // Use the correct state for the cancel modal
         onClose={handleModalCancelClose}
-        setPrice={setPrice}
         onConfirm={handleModalReject} // Ensure this is correct
       />
       <UserModal
         open={isUserModalOpen}
         onClose={handleModalUserClose}
         users={listUser} // Pass the list of users
-        setPrice={setPrice}
         onConfirm={handleModalUser}
         handleNavigateToContract={handleNavigateToContract}
       />

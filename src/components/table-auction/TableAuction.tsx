@@ -3,7 +3,6 @@ import {
   getListAuctionAdmin,
   getCategory,
   approveAuction,
-  getCategoryId,
   getListUserAdmin,
   getListAuctionOfUser,
   getListAuctionRegisterOfUser,
@@ -11,7 +10,7 @@ import {
 } from '../../queries/index';
 import { ApproveModal, CancelModal, UserModal } from '../../components/modalAccept/ApproveModal'; // Import modal
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { Box, Button, Modal, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useMessage } from '@contexts/MessageContext';
 import { profileResponse } from '../../types/auth.type';
@@ -34,8 +33,6 @@ const TableAuction = ({
   const [isUserModalOpen, setUserModalOpen] = useState(false); // Modal state
   const [selectedAuctionID, setSelectedAuctionID] = useState<number | null>(null); // Auction ID state
   const [isApproveModalCancelOpen, setApproveModalCancelOpen] = useState(false); // Modal cancel state
-  const [price, setPrice] = useState<number | null>(null);
-  const [time, setTime] = useState('');
   const [hours, setHours] = useState<number | ''>('');
   const [files, setFiles] = useState<File | null>(null);
   const [minutes, setMinutes] = useState<number | ''>('');
@@ -137,7 +134,7 @@ const TableAuction = ({
   };
   const handleModalReject = async () => {
     if (selectedAuctionID) {
-      const response = await approveAuction(selectedAuctionID, false, time, files);
+      const response = await approveAuction(selectedAuctionID, false, "00:00", files);
       if (response.isSucceed) {
         fetchListAuction();
         setSuccessMessage('You have declined this auction order.');
@@ -429,7 +426,6 @@ const TableAuction = ({
         <ApproveModal
           open={isApproveModalOpen}
           onClose={handleModalClose}
-          setPrice={setPrice}
           onConfirm={handleModalApprove} // Ensure this is correct
           setHours={setHours}
           setMinutes={setMinutes}
@@ -438,14 +434,12 @@ const TableAuction = ({
         <CancelModal
           open={isApproveModalCancelOpen} // Use the correct state for the cancel modal
           onClose={handleModalCancelClose}
-          setPrice={setPrice}
           onConfirm={handleModalReject} // Ensure this is correct
         />
         <UserModal
           open={isUserModalOpen}
           onClose={handleModalUserClose}
           users={listUser} // Pass the list of users
-          setPrice={setPrice}
           onConfirm={handleModalUser}
         />
       </div>

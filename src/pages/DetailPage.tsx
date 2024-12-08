@@ -3,14 +3,12 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CarouselDetail, DetailInformation, DetailContent } from '@components/properties-detail';
 import AuctionRoom from '@components/auction-room/AuctionRoom';
-import { getDetailAuction, profileUser } from '../queries/index';
-import { AuctionDetails, Account } from 'types';
-import { Button } from '@mui/material';
+import { getDetailAuction } from '../queries/index';
+import { AuctionDetails } from 'types';
 
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [auctionDetailInfor, setAuctionDetailInfor] = useState<AuctionDetails | null>(null);
-  const [userProfile, setUserProfile] = useState<Account | null>(null);
   const [ switchdetail, setSwitchdetail ] = useState(false);
 
   useEffect(() => {
@@ -24,16 +22,6 @@ const DetailPage = () => {
     };
     fetchListAuction();
   }, [id]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await profileUser();
-        setUserProfile(response.result);
-      } catch (error) {}
-    };
-    fetchData();
-  }, []);
 
   console.log(switchdetail,"JOIN THE AUCTION")
 

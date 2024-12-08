@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ListAuctionAdmin from '../../components/listauction-admin/listauctionadmin';
 import Footer from '@common/footer/Footer';
 

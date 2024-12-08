@@ -1,7 +1,6 @@
-import { useAuth } from '@contexts/AuthContext';
 import { useLoading } from '@contexts/LoadingContext';
 import { useMessage } from '@contexts/MessageContext';
-import { Button, TextField, IconButton, InputAdornment } from '@mui/material';
+import { TextField, InputAdornment } from '@mui/material';
 import { verifyOTP } from '../queries/AuthenAPI';
 import { FormEvent, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';

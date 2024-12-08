@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { TextField, Select, MenuItem, Button, InputLabel, FormControl } from '@mui/material';
 import { getCategory, getDetailAuctionUser, submitEditAuctionForm } from '../../queries/AuctionAPI';
-import { AuctionDetailRegister } from 'types';
 import { useForm } from 'react-hook-form';
 import { useMessage } from '@contexts/MessageContext';
 import { useLocation } from 'react-router-dom';
-import Footer from '@common/footer/Footer';
 
 export interface AuctionDetail {
   listAuctionID: number;
@@ -39,12 +36,9 @@ export interface EditAuctionItemFormData {
 const EditActionPage: React.FC = () => {
   const {
     handleSubmit,
-    setValue,
     register,
-    formState: { errors },
   } = useForm<EditAuctionItemFormData>();
   const [listCategory, setCategory] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [auctionDetailInfor, setAuctionDetailInfor] = useState<AuctionDetail>();
   const { setSuccessMessage, setErrorMessage } = useMessage();
   const location = useLocation();
@@ -72,8 +66,6 @@ const EditActionPage: React.FC = () => {
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
-    } finally {
-      setLoading(false);
     }
   };
   useEffect(() => {

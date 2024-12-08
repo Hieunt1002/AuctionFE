@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { cityResponse, districtResponse, wardResponse } from '../../types/auth.type';
 import { getCity, getDistrict, getWard } from '../../queries/AdminAPI';
-import axiosInstance from '@services/axiosInstance';
 import { useMessage } from '@contexts/MessageContext';
 import { addUserInformation } from '../../queries/AdminAPI';
 import { useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAuth } from '@contexts/AuthContext';
-import { checkCCCD } from '@queries/AuthenAPI';
 import axios from 'axios';
 
 const AddInfo = () => {
   const [citys, setCitys] = useState<cityResponse[]>([]);
   const [districts, setDistricts] = useState<districtResponse[]>([]);
   const [wards, setWards] = useState<wardResponse[]>([]);
-  const [fullName, setFullName] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const [district, setDistrict] = useState<string>('');
@@ -27,13 +24,12 @@ const AddInfo = () => {
   const [selectedBacksideCCCD, setSelectedBacksideCCCD] = useState<any>(null);
   const [signature, setSignature] = useState<any>(null);
   const [isTouched, setIsTouched] = useState(false);
-  const [gender, setGender] = useState<boolean>();
   const [birthDate, setBirthDate] = useState<string>('');
   const [placeOfResidence, setPlaceOfResidence] = useState<string>('');
   const [placeOfIssue, setPlaceOfIssue] = useState<string>('');
   const [dateOfIssue, setDateOfIssue] = useState<string>('');
   const navigate = useNavigate();
-  const { logout, isAuthenticated } = useAuth();
+  const { logout } = useAuth();
   const { setErrorMessage, setSuccessMessage } = useMessage();
 
   useEffect(() => {
@@ -273,7 +269,6 @@ const AddInfo = () => {
                     type="text"
                     placeholder="Enter full name"
                     value={data?.name}
-                    onChange={(e) => setFullName(e.target.value)}
                     readOnly
                     onFocus={() => setIsTouched(true)}
                   />
@@ -291,7 +286,6 @@ const AddInfo = () => {
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-gender"
                     value={data?.sex == 'NAM' ? 1 : data?.sex == 'NU' ? 0 : ''}
-                    onChange={(e) => setGender(e.target.value === '1')}
                     required
                   >
                     <option value="">Choose gender</option>

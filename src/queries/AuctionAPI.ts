@@ -1,5 +1,5 @@
 import { AuctionItemFormData } from '@components/modal-contract/ContractModal';
-import { AuctionDetail, EditAuctionItemFormData } from '@pages/User/EditAuctionPage';
+import { AuctionDetail } from '@pages/User/EditAuctionPage';
 import axiosInstance from '@services/axiosInstance';
 
 // Helper function to get the token with error handling

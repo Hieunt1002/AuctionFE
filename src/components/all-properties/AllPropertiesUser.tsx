@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import CardList from '../../common/card-list/CardList';
 import { AuctionUser } from 'types';
 import { convertDate } from '@utils/helper';
