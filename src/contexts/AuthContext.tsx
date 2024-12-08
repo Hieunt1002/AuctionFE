@@ -1,5 +1,5 @@
 import { CredentialResponse } from '@react-oauth/google';
-import axios from 'axios';
+import axiosInstance from '@services/axiosInstance';
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { AuthResponse, LoginRequest, SignUpRequest } from 'types';
 
@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Login function to authenticate user
   const login = async (authRequest: LoginRequest): Promise<any> => {
     try {
-      const response = await axios.post<AuthResponse>('/api/account/login', authRequest);
+      const response = await axiosInstance.post<AuthResponse>('/api/account/login', authRequest);
       const token = response.data.result.token;
       const username = authRequest.username;
       const role = response.data.result.role;
@@ -59,7 +59,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Signup function
   const signUp = async (authRequest: SignUpRequest) => {
     try {
-      const response = await axios.post<AuthResponse>('/api/account/register', authRequest);
+      const response = await axiosInstance.post<AuthResponse>('/api/account/register', authRequest);
       return response.data.isSucceed;
     } catch (error) {
       return false;
@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const handleSuccess = async (response: CredentialResponse) => {
     if (response.credential) {
       try {
-        const result = await axios.post<AuthResponse>('/api/google', {
+        const result = await axiosInstance.post<AuthResponse>('/api/google', {
           tokenId: response.credential, // Google Identity Services trả về credential thay vì tokenId
         });
 
