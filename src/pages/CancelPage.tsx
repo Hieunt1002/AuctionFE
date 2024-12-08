@@ -11,7 +11,7 @@ const CancelPage = () => {
   const [isFetch, setIsFetch] = useState(true);
 
   const handleReturnHome = () => {
-    navigate('/', {state : {data: '4'}});
+    navigate('/', {state : {data: '0'}});
   };
 
   useEffect(() => {
