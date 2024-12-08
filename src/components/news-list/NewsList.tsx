@@ -10,7 +10,7 @@ const NewsList = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          'https://newsdata.io/api/1/news?apikey=pub_4058515151c616834f37ed50f02107c4e64cf&country=vi&language=vi&category=business'
+          'https://newsdata.io/api/1/news?apikey=pub_6172442e8e7e547d0228c21966507099f7588&country=vi&language=vi&category=business'
         );
         if (!response.ok) {
           throw new Error('Failed to fetch news');
