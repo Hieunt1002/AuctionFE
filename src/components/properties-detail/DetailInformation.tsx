@@ -2,7 +2,6 @@ import CountdownTimer from '@common/coutdown-timer/CountdownTimer';
 import { AuctionDetails } from 'types';
 import { convertDate } from '@utils/helper';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 interface InfoRowProps {
   label: string;
