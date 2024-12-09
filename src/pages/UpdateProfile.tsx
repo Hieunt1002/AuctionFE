@@ -168,7 +168,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    họ và tên
+                    fullname
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${!profile?.fullName && isTouched ? 'border-red-500' : 'border-gray-200'} rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -182,7 +182,7 @@ const Updateprofile = () => {
                         fullName: e.target.value,
                       }))
                     }
-                    required
+                    readOnly
                     onFocus={() => setIsTouched(true)}
                   />
                   {!profile?.fullName && isTouched && (
@@ -196,7 +196,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-gender"
                   >
-                    Giới tính
+                    gender
                   </label>
                   {profile?.gender ? (
                     <>
@@ -227,7 +227,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    Ngày sinh
+                    birthdate
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -353,7 +353,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    địa chỉ nhà
+                    address
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${!profile?.address && isTouched ? 'border-red-500' : 'border-gray-200'} rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -378,7 +378,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    số điện thoại
+                    phone
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${!/^[0-9]{10}$/.test(profile?.phone ?? '') && isTouched ? 'border-red-500' : 'border-gray-200'} rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
@@ -408,13 +408,13 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    hộ khẩu thường trú
+                    permanent residence
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     id="grid-last-name"
                     type="text"
-                    placeholder="Nhập hộ khẩu thường trú"
+                    placeholder="permanent residence"
                     value={profile?.placeOfResidence}
                     disabled
                   />
@@ -430,7 +430,7 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    Ảnh CMND/CCCD
+                    ID card/CCCD photo
                   </label>
                 </div>
               </div>
@@ -465,13 +465,13 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    Nơi cấp:
+                    Place of issue:
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     id="grid-last-name"
                     type="text"
-                    placeholder="Enter full name"
+                    placeholder="Place of issue"
                     value={profile?.placeOfIssue}
                     readOnly
                   />
@@ -483,13 +483,13 @@ const Updateprofile = () => {
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="grid-first-name"
                   >
-                    Ngày Cấp
+                    Date of Issue
                   </label>
                   <input
                     className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     id="grid-last-name"
                     type="date"
-                    placeholder="Chọn ngày cấp"
+                    placeholder="Date of Issue"
                     value={profile?.dateOfIssue}
                     readOnly
                   />
@@ -604,7 +604,7 @@ const Updateprofile = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            Thêm thông tin
+            Save
           </button>
         </div>
       </form>
