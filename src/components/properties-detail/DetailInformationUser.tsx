@@ -61,7 +61,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
   };
   useEffect(() => {
     const socket = new WebSocket(
-      `ws://capstoneauctioneer.runasp.net/api/viewBidHistory?id=${auctionDetailInfor.listAuctionID}`
+      `wss://capstoneauctioneer.runasp.net/api/viewBidHistory?id=${auctionDetailInfor.listAuctionID}`
     );
 
     socket.onmessage = (event) => {

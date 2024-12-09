@@ -103,7 +103,7 @@ const AuctionDetail = () => {
     return new Intl.NumberFormat('vi-VN').format(int ?? 0);
   };
   useEffect(() => {
-    const socket = new WebSocket(`ws://capstoneauctioneer.runasp.net/api/viewBidHistory?id=${id}`);
+    const socket = new WebSocket(`wss://capstoneauctioneer.runasp.net/api/viewBidHistory?id=${id}`);
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
