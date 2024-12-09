@@ -170,7 +170,7 @@ const AuctionRoom: React.FC<AuctionRoomProps> = ({ auctionDetailInfor }) => {
       }
 
       // Proceed with the valid number ID
-      const response = await postBidMoney(params.auctionId, params.price); // Ensure sending it as string if needed
+      const response = await postBidMoney(params.auctionId, !bidHistory ? Number(auctionDetailInfor?.startingPrice) + params.price : params.price); // Ensure sending it as string if needed
       console.log('Bid placed successfully:', response);
     } catch (error) {
       console.error('Failed to place bid:', error);
