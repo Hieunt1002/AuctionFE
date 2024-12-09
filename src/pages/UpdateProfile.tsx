@@ -156,7 +156,7 @@ const Updateprofile = () => {
   return (
     <>
       <div className="w-full mt-3 flex items-center justify-center pt-20">
-        <h5 className="font-bold text-center text-2xl pl-9">ADD INFORMATION</h5>
+        <h5 className="font-bold text-center text-2xl pl-9">UPDATE INFORMATION</h5>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center pt-10">
