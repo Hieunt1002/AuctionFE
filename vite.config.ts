@@ -10,8 +10,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://capstoneauctioneer.runasp.net',
-        changeOrigin: false,
-        secure: false,
+        changeOrigin: true,
       },
     },
   },
