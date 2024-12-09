@@ -89,7 +89,7 @@ const SearchBox = ({ handleSubmit }: PropertySearch) => {
         </div>
         <div className="w-fit">
           <ButtonSearch onClick={() => handleSubmit(statusSearch, search)} variant="contained" startIcon={<SearchIcon />}>
-            Tìm Kiếm
+            Search
           </ButtonSearch>
         </div>
       </div>
