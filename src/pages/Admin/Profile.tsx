@@ -331,7 +331,7 @@ const Profile = () => {
                   <div className="flex items-center justify-center w-full">
                     <div className="relative w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">
                       <img
-                        src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile.frontCCCD}`}
+                        src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile.frontCCCD}`}
                         alt="Front CCCD"
                         className="w-full h-full object-cover rounded-lg"
                       />
@@ -342,7 +342,7 @@ const Profile = () => {
                   <div className="flex items-center justify-center w-full">
                     <div className="relative w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">
                       <img
-                        src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile.backsideCCCD}`}
+                        src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile.backsideCCCD}`}
                         alt="Back CCCD"
                         className="w-full h-full object-cover rounded-lg"
                       />
@@ -400,7 +400,7 @@ const Profile = () => {
                   </div>
                   <div className="relative mt-4">
                     <img
-                      src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile.avatar}`}
+                      src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile.avatar}`}
                       className="rounded-full w-64 h-64 object-cover border-2 border-gray-300 border-dashed"
                       alt="Selected"
                     />
@@ -421,7 +421,7 @@ const Profile = () => {
                       <div className="relative mt-4">
                         <div className="relative w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">
                           <img
-                            src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile.signature}`}
+                            src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile.signature}`}
                             alt="Back CCCD"
                             className="w-full h-full object-cover rounded-lg"
                           />

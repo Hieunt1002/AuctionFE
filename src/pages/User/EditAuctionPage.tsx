@@ -98,10 +98,10 @@ const EditActionPage: React.FC = () => {
     // Khởi tạo hình ảnh ban đầu từ dữ liệu sản phẩm nếu chưa có ảnh nào mới
     if (auctionDetailInfor && !imagePreview && !imageEvidence) {
       setImagePreview(
-        `http://capstoneauctioneer.runasp.net/api/read?filePath=${auctionDetailInfor.image}`
+        `https://capstoneauctioneer.runasp.net/api/read?filePath=${auctionDetailInfor.image}`
       );
       setImageEvidence(
-        `http://capstoneauctioneer.runasp.net/api/read?filePath=${auctionDetailInfor.imageEvidence}`
+        `https://capstoneauctioneer.runasp.net/api/read?filePath=${auctionDetailInfor.imageEvidence}`
       );
     }
   }, [auctionDetailInfor, imagePreview, imageEvidence]);

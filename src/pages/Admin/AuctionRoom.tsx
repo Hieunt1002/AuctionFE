@@ -53,7 +53,7 @@ const AuctionRoom = () => {
           <Grid item xs={12} md={5}>
             <Box className="relative h-[70vh]">
               <img
-                src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${detailAuction.image}`}
+                src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${detailAuction.image}`}
                 alt={detailAuction.nameAuction}
                 className="object-cover w-full h-full"
               />

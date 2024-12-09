@@ -102,7 +102,7 @@ const CardList = ({
             className="w-full h-64 object-cover transition-transform duration-500 transform group-hover:scale-105"
             src={
               isProperties
-                ? `http://capstoneauctioneer.runasp.net/api/read?filePath=${imgSrc}`
+                ? `https://capstoneauctioneer.runasp.net/api/read?filePath=${imgSrc}`
                 : imgSrc
             }
             alt="Art Auction"

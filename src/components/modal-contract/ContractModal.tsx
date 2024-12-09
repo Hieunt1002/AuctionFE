@@ -256,7 +256,7 @@ const ContractModal: React.FC<ContractModalProps> = ({
             >
               Chữ ký người tham gia
               <img
-                src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile?.signature}`}
+                src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile?.signature}`}
                 alt="Signature"
                 style={{
                   width: '100px',

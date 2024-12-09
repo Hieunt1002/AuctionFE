@@ -277,7 +277,7 @@ const HeaderTop1 = () => {
                       {profile ? (
                         <img
                           className="h-8 w-auto"
-                          src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile.avatar}`}
+                          src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile.avatar}`}
                           alt="Your Profile"
                         />
                       ) : (

@@ -8,7 +8,7 @@ interface CarouselDetailProps {
 
 const CarouselDetail: React.FC<CarouselDetailProps> = ({ imgList = [] }) => {
   // Transform imgList into a list of image URLs
-  const images = imgList.map((item) => `http://capstoneauctioneer.runasp.net/api/read?filePath=${item.img}`);
+  const images = imgList.map((item) => `https://capstoneauctioneer.runasp.net/api/read?filePath=${item.img}`);
 
   const [selectedIndex, setSelectedIndex] = useState(0); // Start with the first image
   const [isZoomed, setIsZoomed] = useState(false); // State to manage zoom modal visibility

@@ -182,7 +182,7 @@ const ListAccountPage = () => {
               >
                 <td className="border-dashed border-t border-gray-200 w-1/6 px-6 py-3 flex items-center space-x-4 w-auto">
                   <img
-                    src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${account.avatar}`}
+                    src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${account.avatar}`}
                     alt="Front CCCD"
                     className="flex-shrink-0 w-10 h-10 object-cover rounded-full mr-2"
                   />

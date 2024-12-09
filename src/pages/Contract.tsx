@@ -285,7 +285,7 @@ const AuctionContract = () => {
             <p className="italic">Người bán</p>
             <div className="mt-16">
               <img
-                src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profile?.signature}`}
+                src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profile?.signature}`}
                 alt="Signature"
                 style={{
                   width: '100px',
@@ -304,7 +304,7 @@ const AuctionContract = () => {
             <p className="italic">Người tham gia đấu giá</p>
             <div className="mt-16">
               <img
-                src={`http://capstoneauctioneer.runasp.net/api/read?filePath=${profiles?.signature}`}
+                src={`https://capstoneauctioneer.runasp.net/api/read?filePath=${profiles?.signature}`}
                 alt="Signature"
                 style={{
                   width: '100px',

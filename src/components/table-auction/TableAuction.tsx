@@ -309,7 +309,7 @@ const TableAuction = ({
                     <td className="px-4 py-2 text-center">
                       <img
                         src={
-                          `http://capstoneauctioneer.runasp.net/api/read?filePath=` + auction.image
+                          `https://capstoneauctioneer.runasp.net/api/read?filePath=` + auction.image
                         }
                         alt={auction.nameAuction}
                         className="w-16 h-16 object-cover mx-auto"
