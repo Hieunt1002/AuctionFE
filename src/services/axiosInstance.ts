@@ -2,7 +2,7 @@ import { useMessage } from '@contexts/MessageContext';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://localhost:7097', // Replace with your API base URL
+  baseURL: 'http://localhost:5121', // Replace with your API base URL
 });
 
 // Add a response interceptor to handle both success and error messages
