@@ -228,7 +228,7 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
   return (
     <div className="container flex flex-col gap-2 h-full">
       <div className="flex gap-1">
-        <div className="font-bold line-clamp-2">{auctionDetailInfor?.description}</div>
+        <div className="font-bold line-clamp-2">{auctionDetailInfor?.nameAuction}</div>
         <div
           className={`${
             !isEndTimePassed(auctionDetailInfor.endTime, auctionDetailInfor.endDay)
