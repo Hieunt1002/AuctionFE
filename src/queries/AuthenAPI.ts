@@ -6,7 +6,7 @@ export const forgetPassword = async (username: string) => {
     try {
         const response = await axiosInstance.get(`api/account/forgot?username=${username}`);
         console.log(response?.data,"response")
-        return response.data;
+        return response?.data;
 
     } catch (error) {
         throw new Error('Failed to fetch list account');

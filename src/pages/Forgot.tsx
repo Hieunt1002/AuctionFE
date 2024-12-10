@@ -15,7 +15,7 @@ const ForgotPage = () => {
     setIsLoading(true);
     const success = await forgetPassword(username);
     setIsLoading(false);
-    if (success) {
+    if (success.isSucceed) {
       navigate('/login');
       setSuccessMessage('Please check your mail');
     } else {
