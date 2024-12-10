@@ -176,7 +176,7 @@ const AddInfo = () => {
     }
     const formData = new FormData();
     formData.append('fullName', data?.name);
-    formData.append('gender', JSON.stringify(data?.sex === 'NAM' ? 1 : 0));
+    formData.append('gender', JSON.stringify(data?.sex === 'NỮ' ? 0 : 1));
 
     formData.append('birthdate', data?.dob);
     formData.append('phone', phone);
@@ -282,16 +282,15 @@ const AddInfo = () => {
                   >
                     gender
                   </label>
-                  <select
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-gender"
-                    value={data?.sex == 'NAM' ? 1 : data?.sex == 'NU' ? 0 : ''}
-                    required
-                  >
-                    <option value="">Choose gender</option>
-                    <option value="1">Nam</option>
-                    <option value="0">Nu</option>
-                  </select>
+                  <input
+                    className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
+                    id="grid-last-name"
+                    type="text"
+                    placeholder="Gender"
+                    value={data?.sex}
+                    readOnly
+                    onFocus={() => setIsTouched(true)}
+                  />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
