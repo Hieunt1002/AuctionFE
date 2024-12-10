@@ -198,7 +198,7 @@ const AddInfo = () => {
   
     const formData = new FormData();
     formData.append('fullName', data.name);
-    formData.append('gender', JSON.stringify(data.sex === 'NỮ' ? 0 : 1));
+    formData.append('gender', data.sex === 'NỮ' ? 'false' : 'true');
     formData.append('birthdate', data.dob);
     formData.append('phone', phone);
     formData.append('city', city);

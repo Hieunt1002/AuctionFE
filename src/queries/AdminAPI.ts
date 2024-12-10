@@ -107,7 +107,6 @@ export const addUserInformation = async (formData: FormData) => {
         const token = localStorage.getItem('token');    
         const response = await axiosInstance.put('api/UserOrAdmin/addInformation', formData, {
             headers: {
-                'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${token}`,
             },
         });
