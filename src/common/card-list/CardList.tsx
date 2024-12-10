@@ -137,19 +137,12 @@ const CardList = ({
             <span className="text-black font-bold">{renderPrice() || '0 VNĐ'}</span>
           </p>
         )}
-
-        {url === 'phien-dau-gia' && !isEndTimePassed(endTime, endDay) ? (
-          <></>
-        ) : (
-          <>
-            <button
-              className="mt-4 w-full bg-green-900 text-white font-bold py-2 px-4 rounded group-hover:bg-sky-700"
-              onClick={handleDetailClick}
-            >
-              VIEW
-            </button>
-          </>
-        )}
+        <button
+          className="mt-4 w-full bg-green-900 text-white font-bold py-2 px-4 rounded group-hover:bg-sky-700"
+          onClick={handleDetailClick}
+        >
+          VIEW
+        </button>
       </div>
     </div>
   );

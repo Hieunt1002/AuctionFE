@@ -337,13 +337,13 @@ const AuctionContract = () => {
               onClick={() => handleAccept(auctionId)}
               className={`px-8 py-2 font-semibold rounded-md bg-green-500 text-white`}
             >
-              Chấp nhận hợp đồng
+              Accept contract
             </button>
             <button
               onClick={handleCancel}
               className="px-8 py-2 font-semibold rounded-md bg-red-500 text-white ml-4"
             >
-              Hủy
+              Cancel
             </button>
           </>
         )}
