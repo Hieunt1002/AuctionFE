@@ -194,7 +194,7 @@ const AuctionRoom: React.FC<AuctionRoomProps> = ({ auctionDetailInfor }) => {
         <div>
           <div className="mb-5 flex gap-3 size-5 w-full font-bold">
             <AutoGraphIcon />
-            Diễn biến cuộc đấu giá
+            Auction progress
           </div>
           <div className="flex flex-col border border-gray-100 p-4 rounded-lg max-h-80 overflow-y-scroll bg-lightGray">
             <div className="flex flex-col gap-2">
@@ -218,7 +218,7 @@ const AuctionRoom: React.FC<AuctionRoomProps> = ({ auctionDetailInfor }) => {
         </div>
         <div className="flex flex-col border border-gray-100 p-4 rounded-lg bg-lightGray">
           <div className="flex justify-between w-full">
-            <p>Giá hiện tại</p>
+            <p>Current Price</p>
             <span>{formatMoney(currentPrice)} VNĐ</span>
           </div>
           <div className="h-[2px] w-full bg-gray-200"></div>

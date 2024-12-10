@@ -147,7 +147,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
   );
   const auctionInfo = [
     {
-      label: 'Giá khởi điểm',
+      label: 'Starting price',
       value: `${
         auctionDetailInfor?.startingPrice
           .toLocaleString('vi-VN', {
@@ -158,7 +158,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
       } VND`,
     },
     {
-      label: 'Bước giá',
+      label: 'Price step',
       value: `${
         auctionDetailInfor?.stepPrice
           ? auctionDetailInfor.stepPrice
@@ -171,7 +171,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
       } VNĐ`,
     },
     {
-      label: 'Tiền đặt trước',
+      label: 'Deposit',
       value: `${
         auctionDetailInfor?.priceDeposit
           .toLocaleString('vi-VN', {
@@ -182,28 +182,28 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
       } VNĐ`,
     },
     {
-      label: 'Thời gian đăng kí tham gia',
+      label: 'Registration time',
       value: newEndTime
         ? `${auctionDetailInfor.startTime} ${auctionDetailInfor.startDay}`
-        : 'Chưa được duyệt',
+        : 'Not approved yet',
     },
     {
       label: '',
       value: newEndTime
         ? `${auctionDetailInfor.endTime} ${auctionDetailInfor.endDay}`
-        : 'Chưa được duyệt',
+        : 'Not approved yet',
     },
     {
-      label: 'Thời gian bắt đầu đấu giá',
+      label: 'Auction start time',
       value: newEndTime
         ? `${auctionDetailInfor.endTime} ${auctionDetailInfor.endDay}`
         : 'Chưa được duyệt',
     },
     {
       label: '',
-      value: newEndTime ? `${newEndTime} ${auctionDetailInfor.endDay}` : 'Chưa được duyệt',
+      value: newEndTime ? `${newEndTime} ${auctionDetailInfor.endDay}` : 'Not approved yet',
     },
-    { label: 'Trạng thái sản phẩm', value: auctionDetailInfor.statusAuction || 'Không xác định' },
+    { label: 'Product status', value: auctionDetailInfor.statusAuction || 'Unknown' },
   ];
   const calculateFinalTime = (endTime: string, endDay: string): Date => {
     // Xử lý `endTime` nếu null hoặc không hợp lệ
@@ -275,7 +275,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
             <div>
               <div className="mb-5 flex gap-3 size-5 w-full font-bold">
                 <AutoGraphIcon />
-                Diễn biến cuộc đấu giá
+                Auction progress
               </div>
               <div className="flex flex-col border border-gray-100 p-4 rounded-lg max-h-80 overflow-y-scroll bg-lightGray">
                 <div className="flex flex-col gap-2">
@@ -301,7 +301,7 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
               </div>
               <div className="mt-8 ml-auto mr-auto">
                 <div className="flex justify-between w-full">
-                  <p>Giá hiện tại</p>
+                  <p>Current Price</p>
                   <span>{formatMoney(currentPrice)} VNĐ</span>
                 </div>
                 <div className="h-[2px] w-full bg-gray-200"></div>
