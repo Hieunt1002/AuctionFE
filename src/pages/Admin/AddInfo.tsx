@@ -25,7 +25,6 @@ const AddInfo = () => {
   const [signature, setSignature] = useState<any>(null);
   const [isTouched, setIsTouched] = useState(false);
   const [birthDate, setBirthDate] = useState<string>('');
-  const [placeOfResidence, setPlaceOfResidence] = useState<string>('');
   const [placeOfIssue, setPlaceOfIssue] = useState<string>('');
   const [dateOfIssue, setDateOfIssue] = useState<string>('');
   const navigate = useNavigate();
@@ -184,7 +183,7 @@ const AddInfo = () => {
     formData.append('district', district);
     formData.append('ward', selectedWardCode);
     formData.append('address', address);
-    formData.append('placeOfResidence', placeOfResidence);
+    formData.append('placeOfResidence', data?.address);
     formData.append('placeOfIssue', placeOfIssue);
 
     formData.append('dateOfIssue', dateOfIssue);
@@ -470,20 +469,13 @@ const AddInfo = () => {
                     permanent residence
                   </label>
                   <input
-                    className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${!placeOfResidence && isTouched ? 'border-red-500' : 'border-gray-200'} rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
+                    className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500`}
                     id="grid-last-name"
                     type="text"
                     placeholder="PERMANENT RESIDENCE"
-                    value={placeOfResidence}
-                    onChange={(e) => setPlaceOfResidence(e.target.value)}
-                    required
-                    onFocus={() => setIsTouched(true)}
+                    value={data?.address}
+                    readOnly
                   />
-                  {!placeOfResidence && isTouched && (
-                    <p className="text-red-500 text-xs italic">
-                      Please enter your permanent residence.
-                    </p>
-                  )}
                 </div>
               </div>
             </div>
