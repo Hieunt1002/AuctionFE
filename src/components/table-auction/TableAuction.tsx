@@ -140,7 +140,7 @@ const TableAuction = ({
         setSuccessMessage('You have declined this auction order.');
       }
     }
-    setApproveModalOpen(false);
+    setApproveModalCancelOpen(false);
   };
 
   const handleModalClose = () => {
