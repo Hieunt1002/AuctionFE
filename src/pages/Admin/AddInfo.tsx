@@ -167,52 +167,52 @@ const AddInfo = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsTouched(true);
-    const age = isAtLeast18(birthDate);
-
+  
+    // Kiểm tra tuổi
+    const age = isAtLeast18(data?.dob);
     if (age < 18) {
       setErrorMessage('You must be at least 18 years old to proceed.');
       return;
     }
+  
+    // Kiểm tra dữ liệu trước khi thêm vào FormData
+    if (!data?.name || !data?.dob || !data?.sex || !phone || !city || !district || !selectedWardCode || !address || !placeOfIssue || !dateOfIssue) {
+      setErrorMessage('Please fill in all required fields.');
+      return;
+    }
+    if (!selectedImage) {
+      setErrorMessage('Please upload your avatar.');
+      return;
+    }
+    if (!selectedFrontCCCD) {
+      setErrorMessage('Please upload the front side of your CCCD.');
+      return;
+    }
+    if (!selectedBacksideCCCD) {
+      setErrorMessage('Please upload the backside of your CCCD.');
+      return;
+    }
+    if (!signature) {
+      setErrorMessage('Please upload your signature.');
+      return;
+    }
+  
     const formData = new FormData();
-    formData.append('fullName', data?.name);
-    formData.append('gender', JSON.stringify(data?.sex === 'NỮ' ? 0 : 1));
-
-    formData.append('birthdate', data?.dob);
+    formData.append('fullName', data.name);
+    formData.append('gender', JSON.stringify(data.sex === 'NỮ' ? 0 : 1));
+    formData.append('birthdate', data.dob);
     formData.append('phone', phone);
     formData.append('city', city);
     formData.append('district', district);
     formData.append('ward', selectedWardCode);
     formData.append('address', address);
-    formData.append('placeOfResidence', data?.address);
+    formData.append('placeOfResidence', data.address);
     formData.append('placeOfIssue', placeOfIssue);
-
     formData.append('dateOfIssue', dateOfIssue);
-
-    if (selectedImage) {
-      formData.append('avatar', selectedImage);
-    } else {
-      setErrorMessage('Please enter your avatar.');
-      return;
-    }
-    if (selectedFrontCCCD) {
-      formData.append('frontCCCD', selectedFrontCCCD);
-    } else {
-      setErrorMessage('Please enter your front cccd.');
-      return;
-    }
-    if (selectedBacksideCCCD) {
-      formData.append('backsideCCCD', selectedBacksideCCCD);
-    } else {
-      setErrorMessage('Please enter your back side cccd.');
-      return;
-    }
-    if (signature) {
-      formData.append('signature', signature);
-    } else {
-      setErrorMessage('Please enter your signature.');
-      return;
-    }
-
+    formData.append('avatar', selectedImage);
+    formData.append('frontCCCD', selectedFrontCCCD);
+    formData.append('backsideCCCD', selectedBacksideCCCD);
+    formData.append('signature', signature);
     try {
       const response = await addUserInformation(formData);
       if (response.isSucceed) {
@@ -222,7 +222,7 @@ const AddInfo = () => {
         setErrorMessage(response.message);
       }
     } catch (error) {
-      setErrorMessage('Erro add infomation');
+      setErrorMessage('Error adding information');
     }
   };
   function formatDate(dateString: string) {
