@@ -24,7 +24,6 @@ const AddInfo = () => {
   const [selectedBacksideCCCD, setSelectedBacksideCCCD] = useState<any>(null);
   const [signature, setSignature] = useState<any>(null);
   const [isTouched, setIsTouched] = useState(false);
-  const [birthDate, setBirthDate] = useState<string>('');
   const [placeOfIssue, setPlaceOfIssue] = useState<string>('');
   const [dateOfIssue, setDateOfIssue] = useState<string>('');
   const navigate = useNavigate();
@@ -306,7 +305,6 @@ const AddInfo = () => {
                     type="date"
                     placeholder="Chọn ngày cấp"
                     value={data?.dob ? formatDate(data.dob) : ''}
-                    onChange={(e) => setBirthDate(e.target.value)}
                     onFocus={() => setIsTouched(true)}
                     required
                   />
