@@ -6,13 +6,14 @@ import { LoadingProvider, useLoading } from '@contexts/LoadingContext';
 import { MessageProvider } from '@contexts/MessageContext';
 import AddInfo from '@pages/Admin/AddInfo';
 import Profile from '@pages/Admin/Profile';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Footer from '@common/footer/Footer';
 import Home from '@pages/Dashboard/Home';
 import AddActionPage from '@pages/User/AddActionPage';
 import EditActionPage from '@pages/User/EditAuctionPage';
+import NotFound from '@pages/notFoundPage';
 import {
   HomePage,
   LoginPage,
@@ -49,7 +50,7 @@ const AppRoutes: React.FC = () => {
       {isLoading && <LoadingIndicator />}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+      <Route path="/" element={getRole() === 'admin' ? <Navigate to="/dashboard" /> : <HomePage />} />
         <Route path="/thong-tin-chi-tiet/:id" element={<DetailPage />} />
         <Route path="/" element={<ProtectedRoute />}>
           {getRole() == 'user' && (
@@ -78,7 +79,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/changePasswordPage" element={<ChangePasswordPage />} />
           <Route path="/inforUser" element={<InforUser />} />
-          <Route path="*" element={<InforUser />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="/update-profile" element={<Updateprofile />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
