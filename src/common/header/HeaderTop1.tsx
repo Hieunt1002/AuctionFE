@@ -12,7 +12,7 @@ const HeaderTop1 = () => {
   const { logout, isAuthenticated } = useAuth();
   const [isMobileMenu, setIsMobileMenu] = useState(false);
   const [profile, setProfile] = useState<profileResponse | null>();
-
+  const [count, setCount] = useState(0);
   const getRole = () => {
     const role = localStorage.getItem('role');
     return role;
@@ -83,21 +83,38 @@ const HeaderTop1 = () => {
     setNotificationAnchorEl(event.currentTarget);
     setNotificationOpen(!notificationOpen);
   };
+  useEffect(() => {
+    if (profile) {
+      const socket = new WebSocket(
+        `wss://capstoneauctioneer.runasp.net/api/notification/unreadNotificationCount?uid=${profile.accountId}`
+      );
 
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        setCount(data);
+      };
+
+      return () => {
+        socket.close();
+      };
+    }
+  }, [profile]);
   const handleNotificationClose = () => {
     setNotificationAnchorEl(null);
     setNotificationOpen(false);
   };
 
   useEffect(() => {
-    const fetchNotifi = async () => {
-      try {
-        const userData = await getListNotification();
-        setNotifications(userData.result);
-      } catch (error) {}
-    };
-    fetchNotifi();
-  }, []);
+    if(notificationOpen){
+      const fetchNotifi = async () => {
+        try {
+          const userData = await getListNotification();
+          setNotifications(userData.result);
+        } catch (error) {}
+      };
+      fetchNotifi();
+    }
+  }, [notificationOpen]);
   return (
     <HeaderContainer className="fixed top-0 z-10">
       <div className="mx-auto px-2 sm:px-6 lg:px-8 w-full items-center">
@@ -133,9 +150,7 @@ const HeaderTop1 = () => {
               <img className="h-9 w-auto" src="logo.png" alt="Your Company " />
               <div>
                 <h6 className="font-bold text-white">ONLINE AUCTION</h6>
-                <p className=" text-white">
-                  Danang City Property Auction and Service Center
-                </p>
+                <p className=" text-white">Danang City Property Auction and Service Center</p>
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:block">
@@ -232,6 +247,13 @@ const HeaderTop1 = () => {
                         />
                       </svg>
                     </Button>
+                    {count > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                        {count}
+                      </span>
+                    )}
+
+                    <div></div>
                     <Menu
                       id="notification-menu"
                       anchorEl={notificationAnchorEl}
@@ -260,7 +282,9 @@ const HeaderTop1 = () => {
                         </div>
                       ))}
                       {notifications.length === 0 && (
-                        <div className="p-4 text-center text-gray-500">There are no notifications.</div>
+                        <div className="p-4 text-center text-gray-500">
+                          There are no notifications.
+                        </div>
                       )}
                     </Menu>
                   </div>
@@ -305,7 +329,7 @@ const HeaderTop1 = () => {
                 <div className="relative ml-3 flex">
                   <div>
                     <Button variant="outlined" onClick={onLoginBtnClick}>
-                    Log in
+                      Log in
                     </Button>
                   </div>
                   <div className="ml-6">
