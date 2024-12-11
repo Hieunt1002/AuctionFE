@@ -78,6 +78,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/changePasswordPage" element={<ChangePasswordPage />} />
           <Route path="/inforUser" element={<InforUser />} />
+          <Route path="*" element={<InforUser />} />
           <Route path="/update-profile" element={<Updateprofile />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
