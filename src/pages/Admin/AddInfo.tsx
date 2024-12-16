@@ -135,7 +135,7 @@ const AddInfo = () => {
         try {
           const response = await axios.post('https://api.fpt.ai/vision/idr/vnm', formData, {
             headers: {
-              'api-key': 'ifQTXVK0n5wRXD8qczSXwxbcBPvMIjQt',
+              'api-key': 'nzJ3M2PAE7LW24tFlnT10mAe900WrNYD',
               'Content-Type': 'multipart/form-data',
             },
           });

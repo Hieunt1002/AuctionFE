@@ -243,7 +243,14 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
   const handleNavigateToContract = () => {
     navigate('/edit-auction', { state: { id: auctionDetailInfor.listAuctionID } });
   };
-
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = auctionDetailInfor?.evidenceFile;
+    link.download = 'Tài liệu phê duyệt.docx'; // Tên file khi tải về (có thể đổi)
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Dọn dẹp sau khi tải xong
+  };
   return (
     <div className="container flex flex-col gap-2 h-full">
       <div className="flex gap-1">
@@ -320,11 +327,19 @@ const DetailInformationUser: React.FC<DetailInformationProps> = ({ auctionDetail
             ))}
             <div className="mt-14 ml-auto mr-auto">
               <button
-                className="bg-amber-500 text-white px-2 py-1 rounded mr-2 h-10"
+                className="bg-amber-500 text-white px-2 py-1 rounded mr-2"
                 onClick={() => setIsModalOpen(true)}
               >
                 View contract
               </button>
+              {auctionDetailInfor.evidenceFile && (
+                <button
+                  onClick={handleDownload}
+                  className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                >
+                  Download information file
+                </button>
+              )}
               {auctionDetailInfor.statusAuction === 'Not approved yet' ? (
                 <>
                   <button

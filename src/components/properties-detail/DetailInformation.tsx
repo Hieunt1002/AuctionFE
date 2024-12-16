@@ -225,6 +225,14 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
       },
     });
   };
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = auctionDetailInfor?.evidenceFile;
+    link.download = 'Tài liệu phê duyệt.docx'; // Tên file khi tải về (có thể đổi)
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Dọn dẹp sau khi tải xong
+  };
   return (
     <div className="container flex flex-col gap-2 h-full">
       <div className="flex gap-1">
@@ -249,14 +257,22 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
           <InfoRow key={index} label={item.label} value={item.value} />
         ))}
         <div className="mt-8 ml-auto mr-auto">
+          <button
+            onClick={handleDownload}
+            className="bg-green-500 text-white px-2 py-1 rounded mr-2 h-10"
+          >
+            Download information file
+          </button>
           {currentPath.includes('phien-dau-gia') ? (
             <>
               {isEndTimePassed(auctionDetailInfor?.endTime, auctionDetailInfor?.endDay) ? (
                 <>
-                  <button className="bg-amber-500 text-white px-2 py-1 rounded mr-2 h-10"
-                  onClick={() => {
-                    handleNavigateToContract();
-                  }}>
+                  <button
+                    className="bg-amber-500 text-white px-2 py-1 rounded mr-2 h-10"
+                    onClick={() => {
+                      handleNavigateToContract();
+                    }}
+                  >
                     View contract
                   </button>
                   <button

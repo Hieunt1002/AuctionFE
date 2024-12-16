@@ -58,7 +58,6 @@ const AppRoutes: React.FC = () => {
               <Route path="/phien-dau-gia/:id" element={<DetailPage />} />
               <Route path="/add-auction" element={<AddActionPage />} />
               <Route path="/edit-auction" element={<EditActionPage />} />
-              <Route path="/contract" element={<Contract />} />
               <Route path="/cancel" element={<CancelPage />} />
               <Route path="/success" element={<SuccessPage />} />
               <Route path="/listYourAuction" element={<ListYourAuction />} />
@@ -74,6 +73,7 @@ const AppRoutes: React.FC = () => {
               <Route path="/listuser" element={<ListAccountPage />} />
             </>
           )}
+          <Route path="/contract" element={<Contract />} />
           <Route path="/auctionRoom" element={<AuctionRoom />} />
           <Route path="/add-info" element={<AddInfo />} />
           <Route path="/profile" element={<Profile />} />
