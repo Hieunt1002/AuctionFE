@@ -321,7 +321,7 @@ const AuctionRoom: React.FC<AuctionRoomProps> = ({ auctionDetailInfor }) => {
             <Box sx={modalStyle}>
 
               <Typography id="modal-modal-title" variant="h6" component="h2" className="text-center">
-                Phiên đấu giá kết thúc!
+              Auction ends!
               </Typography>
               {isTimeOut && bidHistory[0]?.Price === currentPrice && bidHistory[0].userId === userProfile?.accountId ? (
                 <>
@@ -331,7 +331,7 @@ const AuctionRoom: React.FC<AuctionRoomProps> = ({ auctionDetailInfor }) => {
                     component="h1"
                     className="text-center text-red-600"
                   >
-                    Chúc mừng bạn đã thắng cuộc
+                    Congratulations on your win!
                   </Typography>
                   <img src="/winner.png" alt="Winner" className="h-40 w-80 mx-auto" />
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>

@@ -13,7 +13,7 @@ const LoginPage = () => {
   const { setIsLoading } = useLoading();
   const { setSuccessMessage, setErrorMessage } = useMessage();
   const GOOGLE_CLIENT_ID =
-    '800544947907-gqq1fut5e84qhsdtapqs1nf1f3rao28r.apps.googleusercontent.com';
+    '1051065638561-4rujgrn1ssv5s5vl83hfchobkpia9v86.apps.googleusercontent.com';
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
