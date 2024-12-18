@@ -1,7 +1,7 @@
 import CountdownTimer from '@common/coutdown-timer/CountdownTimer';
 import { AuctionDetails } from 'types';
 import { convertDate } from '@utils/helper';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface InfoRowProps {
   label: string;
@@ -225,17 +225,26 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
       },
     });
   };
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = auctionDetailInfor?.evidenceFile;
+    link.download = 'Documents.docx'; // Tên file khi tải về (có thể đổi)
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Dọn dẹp sau khi tải xong
+  };
   return (
     <div className="container flex flex-col gap-2 h-full">
       <div className="flex gap-1">
         <div className="font-bold line-clamp-2">{auctionDetailInfor?.nameAuction}</div>
         <div
-          className={`${!isEndTimePassed(auctionDetailInfor.endTime, auctionDetailInfor.endDay)
+          className={`${
+            !isEndTimePassed(auctionDetailInfor.endTime, auctionDetailInfor.endDay)
               ? 'bg-green-500'
               : targetDate > new Date()
                 ? 'bg-orange-500'
                 : 'bg-yellow-500'
-            } bg-opacity-90 p-2 rounded-full w-60`}
+          } bg-opacity-90 p-2 rounded-full w-60`}
         >
           <CountdownTimer targetDate={targetDate} />
         </div>
@@ -248,13 +257,12 @@ const DetailInformation: React.FC<DetailInformationProps> = ({
           <InfoRow key={index} label={item.label} value={item.value} />
         ))}
         <div className="mt-8 ml-auto mr-auto">
-          <Link to={auctionDetailInfor?.evidenceFile} target='_blank'>
-            <button
-              className="bg-green-500 text-white px-2 py-1 rounded mr-2 h-10"
-            >
-              Download information file
-            </button>
-          </Link>
+          <button
+            onClick={handleDownload}
+            className="bg-green-500 text-white px-2 py-1 rounded mr-2 h-10"
+          >
+            Download information file
+          </button>
           {currentPath.includes('phien-dau-gia') ? (
             <>
               {isEndTimePassed(auctionDetailInfor?.endTime, auctionDetailInfor?.endDay) ? (
